@@ -1,0 +1,17 @@
+import './BarraStatus.css'
+import Indices from '../Indices'
+import Consolidado from '../Consolidado'
+
+const BarraStatus = () => {
+
+    return (
+
+        <section className='BarraStatus'>
+           
+            <Consolidado />
+            <Indices />
+            
+        </section>
+    )
+}
+export default BarraStatus

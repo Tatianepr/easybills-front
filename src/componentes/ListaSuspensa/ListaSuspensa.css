@@ -1,0 +1,23 @@
+.Lista-Suspesa {
+    margin: 24px 0;
+    display: inline-block;
+}
+
+.Lista-Suspesa label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-size: 1rem;
+}
+
+.Lista-Suspesa select {
+    background-color: #fff;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid #ccc;
+    font-size: 14px;
+    padding: 12px ;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-right: 8px;
+    
+}

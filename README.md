@@ -1,3 +1,16 @@
+# documentação
+
+API Externa
+https://github.com/raniellyferreira/economy-api
+
+Microserviços
+Categoria
+Lançamentos
+
+$ docker build -t easybills .
+docker run -p 3000:3000 easybills
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

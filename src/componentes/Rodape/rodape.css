@@ -1,0 +1,25 @@
+.footer {
+    /*background: #6A1B9A;*/
+    background: rgb(200, 199, 199);
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*position: absolute;*/
+    bottom: 0;
+    width: 100%;
+    /*padding: 10px 0;*/
+}
+
+.footer ul li {
+    display: inline-block;
+}
+
+.footer p {
+    text-align: right;
+    font-size: 10px;
+}
+
+.footer img {
+    margin-right:32px;
+}

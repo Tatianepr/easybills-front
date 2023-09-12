@@ -1,0 +1,88 @@
+import { useEffect, useState } from 'react';
+import './LancamentoItem.css'
+
+/* define estilo para o status de pagamento das despesas*/
+function FormataStatus(status, data) {
+  let vencimento = data;
+  let pago = status
+  let hoje = new Date();
+  let botao_status = '';
+  let estilo_pago = '';
+  let texto = '';
+
+  if (!pago) {
+    if (vencimento < hoje) {
+      botao_status = <span className="badge bg-atrasadas">Atrasada</span>;
+      estilo_pago = 'tblDelBtn';
+      texto = 'Pagar';
+    }
+    else {
+      botao_status = <span className="badge bg-apagar">A pagar</span>;
+      estilo_pago = 'tblDelBtn';
+      texto = 'Pagar';
+    }
+  }
+  else {
+    botao_status = <span className="badge bg-pagas">Paga</span>;
+    estilo_pago = 'tblDelBtnu';
+    texto = 'Desfazer Pagamento';
+  }
+  let retorno = [botao_status, estilo_pago, texto]
+  return (retorno);
+}
+
+const Lancamentoitem = (props) => {
+
+  const corEscolhida2 = props.cores.find(transacao => transacao.nome === props.transacao)?.corPrimaria || '#000000';
+
+  const statusPago = props.pago ? 'Pago' : 'Não Pago';
+
+  let data = props.vencimento
+  let partes = data.split('/');
+  let vencimento = new Date(partes[2], partes[1] - 1, partes[0]);
+
+  let estilopago = FormataStatus(props.pago, vencimento);
+  let botao_status = estilopago[0];
+  let estilo_pago = estilopago[1];
+  let texto = estilopago[2];
+
+  const EditarClick = () => {
+    // Função para lidar com o clique no link "Editar"
+    alert('Editar clicado para ' + props.descricao);
+  };
+
+  const PagarrClick = () => {
+    // Função para lidar com o clique no link "Pagar"
+    alert('Pagar clicado para ' + props.descricao);
+    props.aoLancamentoPago(props.id);
+
+  };
+
+  const ExcluirClick = () => {
+    // Função para lidar com o clique no link "Excluir"
+    alert('Excluir clicado para ' + props.descricao);
+    //setExcluirClicked(true); 
+    props.aoLancamentoExcluido(props.id);
+
+  };
+
+  return (
+    <tr key={props.id}>
+      <td key="id">{props.id}</td>
+      <td key="tipo">{props.transacao}</td>
+      <td key="descricao">{props.descricao}</td>
+      <td key="categoria">{props.categoria}</td>
+      <td key="valor" style={{ color: corEscolhida2 }}>{props.valor}</td>
+      <td key="vencimento">{props.vencimento}</td>
+      <td key="status">{botao_status}</td>
+      <td key="acao">
+        <a href="#" className="tblDelBtn" onClick={EditarClick} title="Editar"><i id="edit">&#128393;</i></a>
+        <a href="#" className="tblDelBtn" onClick={PagarrClick} title="Pagar">&nbsp; <i id="pagar" >&nbsp;&#36;&nbsp;</i></a>
+        <a href="#" className="tblDelBtn" onClick={ExcluirClick} title="Excluir Despesa">&nbsp; <i id="exclur">&nbsp;X&nbsp;</i></a>
+      </td>
+    </tr>
+  );
+}
+
+export default Lancamentoitem
+
