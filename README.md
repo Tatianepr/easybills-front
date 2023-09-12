@@ -8,7 +8,8 @@ Categoria
 Lançamentos
 
 $ docker build -t easybills .
-docker run -p 3000:3000 easybills
+
+$ docker run -p 3000:3000 easybills
 
 
 # Getting Started with Create React App
