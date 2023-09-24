@@ -1,0 +1,84 @@
+.lancamento {
+    padding: 16px 0px;
+    background-color: rgb(200, 199, 199);
+    border-radius: 20px;
+    margin: 8px 16px;
+}
+
+.lancamento table {
+    border-collapse: collapse;
+    /* REMOVE BORDA DAS COLUNAS*/
+    width: 100%;
+    text-align: center;
+    background-color: #eeeaea;
+   
+}
+
+.lancamento th {
+    padding: 10px;
+    line-height: 0.5 !important;
+    /*border: 1px solid #ccc; COLOCA UMA BORDA FINA APENAS NA PRIMEIRA LINHA*/
+    background-color: #9C27B0;
+    font-weight: bold;
+    color: white;
+   
+}
+
+.lancamento tr:nth-child(even) {
+    background-color: #f7f2f2;
+    ;
+}
+
+.lancamento tr:hover {
+    background: rgb(200, 199, 199);
+}
+
+.lancamento td {
+    padding: 8px;
+    line-height: 0.5 !important;
+    /*border: 1px solid #ccc;*/
+  
+}
+
+.Lancamento  h3 {
+    padding: 0px 0px;
+    color: #9C27B0;
+    text-align: center;
+    font-style: bold;
+}
+
+.lancamento .title-and-buttons {
+    display: flex;
+    justify-content: space-between; /* Isso alinhará o título à esquerda e os botões à direita */
+    align-items: center; /* Isso centralizará verticalmente os elementos */
+    margin-bottom: 16px; /* Adicione margem inferior se necessário */
+    margin: 0px 8px;
+    color: #6A1B9A;;
+   
+}
+
+.lancamento .buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.lancamento .buttons .botao {
+    margin-left: 8px; /* Adicione margem entre os botões, se necessário */
+}
+
+.botao {
+    background-color: #E040FB;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    /*display: flex;*/
+  }
+  
+  .botao:hover {
+    color: #6A1B9A;
+    background-color: #E040FB;
+  }

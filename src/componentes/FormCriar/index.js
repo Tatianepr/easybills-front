@@ -2,37 +2,25 @@ import { Form, Button } from "react-bootstrap";
 import { useEffect, useState } from 'react';
 import { LancamentoContext } from '../../contexts/LancamentoContext';
 import { useContext } from 'react';
-import './FormEditar.css'
+import './FormCriar.css'
 
-function converteDataFormatoBrasileiroParaISO(dataBrasileira) {
-    const partesData = dataBrasileira.split('/');
-    if (partesData.length === 3) {
-        const dia = partesData[0];
-        const mes = partesData[1];
-        const ano = partesData[2];
-        return `${ano}-${mes}-${dia}`;
-    }
-    return null; // Retorno nulo em caso de formato de data inválido
-}
+export const FormCriar = () => {
 
-const FormEditar = ({ oLancamento }) => {
+    const { CriaLancamento } = useContext(LancamentoContext);
 
-    const id = oLancamento.id;
+    const [NovoLancamento, setNovoLancamento] = useState({
+        transacao: "",
+        categoria: "",
+        descricao: "",
+        valor: "",
+        vencimento: ""
+    });
 
-    const [transacao, setTransacao] = useState(oLancamento.tipo)
-    const [categoria, setCategoria] = useState(oLancamento.categoria_id)
-    const [descricao, setDescricao] = useState(oLancamento.descricao)
-    const [valor, setValor] = useState(oLancamento.valor)
-    const [vencimento, setVencimento] = useState(converteDataFormatoBrasileiroParaISO(oLancamento.data_vencimento))
+    const onInputChange = (e) => {
+        setNovoLancamento({ ...NovoLancamento, [e.target.name]: e.target.value });
+    };
 
-    const { EditaLancamento } = useContext(LancamentoContext);
-
-    const EditadoLancamento = { id, transacao, categoria, descricao, valor, vencimento }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        EditaLancamento(id, EditadoLancamento)
-    }
+    const { transacao, categoria, descricao, valor, vencimento } = NovoLancamento;
 
     const [categorias, setCategorias] = useState([]);
 
@@ -46,6 +34,7 @@ const FormEditar = ({ oLancamento }) => {
             nome: 'Receita'
         }
     ];
+
 
     useEffect(() => {
         // Aqui você pode fazer a requisição para obter as categorias com base na transação selecionada (transacao)
@@ -64,10 +53,16 @@ const FormEditar = ({ oLancamento }) => {
         }
     }, [transacao]);
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(descricao);
+        CriaLancamento(transacao, categoria, descricao, valor, vencimento );
+    };
+
 
     return (
-        <section className='formEditar'>
-            <Form onSubmit={handleSubmit} >
+        <section className='formCriar'>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group className='Lista-Suspesa'>
                     <label>Transação</label>
                     <Form.Control
@@ -75,7 +70,7 @@ const FormEditar = ({ oLancamento }) => {
                         required
                         name="transacao"
                         value={transacao}
-                        onChange={(e) => setTransacao(e.target.value)}
+                        onChange={(e) => onInputChange(e)}
                     >
                         <option value=""></option>
                         {transacoes.map(item => {
@@ -92,7 +87,7 @@ const FormEditar = ({ oLancamento }) => {
                         name="categoria"
                         itens={categorias}
                         value={categoria}
-                        onChange={(e) => setCategoria(e.target.value)}
+                        onChange={(e) => onInputChange(e)}
                     >
                         <option value=""></option>
                         {categorias.map(item => {
@@ -108,8 +103,7 @@ const FormEditar = ({ oLancamento }) => {
                         name="descricao"
                         placeholder="Digite a Descrição"
                         value={descricao}
-                        onChange={(e) => setDescricao(e.target.value)}
-                    />
+                        onChange={(e) => onInputChange(e)} />
                 </Form.Group>
                 <Form.Group className="campo-texto">
                     <label>Valor</label>
@@ -119,8 +113,7 @@ const FormEditar = ({ oLancamento }) => {
                         name="valor"
                         placeholder="Digite o valor"
                         value={valor}
-                        onChange={(e) => setValor(e.target.value)}
-                    />
+                        onChange={(e) => onInputChange(e)} />
                 </Form.Group>
                 <Form.Group className="campo-texto">
                     <label>Vencimento</label>
@@ -130,23 +123,21 @@ const FormEditar = ({ oLancamento }) => {
                         name="vencimento"
                         placeholder="Digite a data"
                         value={vencimento}
-                        onChange={(e) => setVencimento(e.target.value)}
-                    />
+                        onChange={(e) => onInputChange(e)} />
                 </Form.Group>
                 <p></p>
-                <Button className='botao' variant="success" type="submit" block>
-                    Editar
+                <Button className='botao' variant="success" type="submit" > 
+                    Cadastrar
                 </Button>
 
             </Form>
-
         </section>
     );
 
 };
 
 
-export default FormEditar;
+export default FormCriar;
 
 /*
 

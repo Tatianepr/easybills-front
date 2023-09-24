@@ -1,10 +1,16 @@
 .BarraStatus {
     display: flex;
     justify-content: center;
-    background-color:#ebe6e6;
+    background-color: #ebe6e6;
     /*border-radius: 20px;*/
+    font-weight: bold;
 }
 
 .BarraStatus div {
     margin: 0px 64px;
+    
+}
+
+.BarraStatus img {
+    height: 30px;
 }

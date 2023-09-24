@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import './BarraStatus.css'
+import './BarraIndice.css'
 
-const BarraStatus = () => {
+const BarraIndice = () => {
 
     const [dolar, setDolar] = useState([])
     const [euro, setEuro] = useState([])
@@ -31,9 +31,9 @@ const BarraStatus = () => {
                 <table>
                     <thead>
                         <tr>
-                            <td><h4>Dólar: {dolar}</h4></td>
+                            <td><img src="/imagens/dolar.svg" /> </td>
                             <td></td>
-                        <td><img src="/imagens/dolar.svg" /> </td>
+                            <td>Dólar: {dolar}</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,9 +44,10 @@ const BarraStatus = () => {
                 <table>
                     <thead>
                         <tr>
-                            <td><h4>Euro: {euro}</h4></td>
-                        <td></td>
-                        <td><img src="/imagens/euro.svg" /> </td>
+                            <td><img src="/imagens/euro.svg" /> </td>
+                            <td></td>
+                            <td>Euro: {euro}</td>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -58,10 +59,9 @@ const BarraStatus = () => {
                 <table>
                     <thead>
                         <tr>
-                            <td><h4>Bitcoin: {bit}</h4>
-                            </td>
-                            <td></td>
                             <td><img src="/imagens/bitcoin.svg" /> </td>
+                            <td></td>
+                            <td>Bitcoin: {bit}</td>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -73,4 +73,4 @@ const BarraStatus = () => {
 
 }
 
-export default BarraStatus
+export default BarraIndice

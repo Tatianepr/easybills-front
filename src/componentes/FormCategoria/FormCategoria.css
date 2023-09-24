@@ -1,0 +1,22 @@
+.formCategoria {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.formCategoria form {
+    width: 100%;
+    background-color: #F2F2F2;
+    border-radius: 20px;
+    padding: 12px 36px;
+    /*box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08);*/
+    /*margin: 16px 16px;*/
+}
+
+.formCategoria table {
+    width: 94%;
+    padding: 12px 36px;
+    /*box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08);*/
+    /*margin: 16px 16px;*/
+}
