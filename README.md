@@ -38,8 +38,9 @@ Além disso, o front-end chama uma API externa abaixo, responsável por fornecer
 
 ```
  npm start
-
 ```
+
+Uma vez executando, para acessar a aplicação, basta abrir o [http://localhost:3000](http://localhost:3000) no navegador.
 
  ## Como executar através do Docker
 
