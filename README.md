@@ -15,13 +15,16 @@ Linkendin: https://www.linkedin.com/in/tatianepr/
 - marcar uma despesa ou lançamento como "pago".
 - visualização da cotação do Dólar, Euro e Bitcoin
 
+## Preview
+
+<img src='public/imagens/frontend.jpg' />
 
 ## Arquitetura do projeto
 
 Foi desenvolvido um frontend em REACT que chama os dois componentes escritos em Python. 
 
-- Frontend REACT (porta 3000) -> https://github.com/Tatianepr/easybills-front
-- Componente Categoria (porta 5000) -> https://github.com/Tatianepr/easybills_back_categoria (esse)
+- Frontend REACT (porta 3000) -> https://github.com/Tatianepr/easybills-front (esse)
+- Componente Categoria (porta 5000) -> https://github.com/Tatianepr/easybills_back_categoria 
 - Componente Lançametos (porta 5001) -> https://github.com/Tatianepr/easybills_back_lancamentos 
 
 Além disso, o front-end chama uma API externa abaixo, responsável por fornecer cotações atualizadas do Dólar, Euro e Bicoin.
